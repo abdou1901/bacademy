@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #deleteBtn , #editbutton {
+            width: 90px;
+            height: 50px;
+            margin: 0 auto;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            background: rgba(169, 104, 245, 0.377);
+            border: none;
+            border-radius: 5px;
+            box-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+
+        }
+        
+        #deleteBtn, #editbutton, #deleteBtn span, #editbutton span {
+            transition: 200ms;
+        }
+        
+        #deleteBtn .text , #editbutton .text{
+            transform: translateX(10px);
+            color: white;
+            font-weight: bold;
+        }
+        #deleteBtn .icon , #editbutton .icon{
+            position: absolute;
+            
+            transform: translateX(55px);
+            height: 35px;
+            width: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #deleteBtn .icon {
+            border-left: 2px solid #c41b1b;
+        }
+        #editbutton .icon{
+            border-left: 2px solid #788ff5;
+        }
+        
+        #deleteBtn svg , #editbutton svg {
+            width: 15px;
+            fill: #eee;
+        }
+        
+        #deleteBtn:hover {
+            background: #ff3636;
+        }
+        #editbutton:hover{
+            background: #096fc2;
+
+        }
+        
+        #deleteBtn:hover .text , #editbutton:hover .text{
+            color: transparent;
+        }
+        
+        #deleteBtn:hover .icon , #editbutton:hover .icon{
+            width: 90px;
+            border-left: none;
+            transform: translateX(0);
+        }
+        
+        #deleteBtn:focus , #editbutton:focus {
+            
+            outline: none;
+        }
+        
+        #deleteBtn:active .icon svg , #editbutton:active .icon svg {
+            transform: scale(0.8);
+        }
+    </style>
+</head>
+<body>
+    <button onclick='deleteTask(${task.id})' id='deleteBtn' class="noselect"><span class="text">Delete</span><span class="icon"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M24 20.188l-8.315-8.209 8.2-8.282-3.697-3.697-8.212 8.318-8.31-8.203-3.666 3.666 8.321 8.24-8.206 8.313 3.666 3.666 8.237-8.318 8.285 8.203z"></path></svg></span></button>
+    
+</body>
+</html>

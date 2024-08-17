@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do List</title>
+    <link rel="stylesheet" href='css/todo.css'>
+    <style>
+        /* CSS Styles */
+        #checklist {
+          --background: transparent;
+          --text: #ffffff;
+          --check: #ffffff;
+          --disabled: #64e26e;
+      
+          --border-radius: 10px;
+          
+      
+          
+          position: relative;
+          box-shadow: 0 10px 30px rgba(#414856, 0.05);
+          padding: 30px 45px;
+          display: grid;
+          grid-template-columns: 30px auto;
+          align-items: center;
+        }
+        #checklist label {
+          width: 100px;
+          color: var(--text);
+          position: relative;
+          cursor: pointer;
+          display: grid;
+          align-items: center;
+          width: fit-content;
+          transition: .3s ease;
+        }
+        #checklist label::before,
+        #checklist label::after {
+          content:"";
+          position: absolute;
+        }
+        #checklist label::before {
+          height: 2px;
+          width: 8px;
+          left: -27px;
+          background: var(--check);
+          border-radius: 2px;
+          transition: background .3s ease; 
+        }
+        #checklist label::after {
+          height: 4px;
+          width: 4px;
+          top: 8px;
+          left: -25px;
+          border-radius: 50%;
+        }
+        #checklist input[type="checkbox"] {
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          position: relative;
+          height: 15px;
+          width: 15px;
+          outline: none;
+          border: 0;
+          margin: 0 15px 0 0;
+          cursor: pointer;
+          background: var(--background);
+          display: grid;
+          align-items: center;
+        }
+        #checklist input[type="checkbox"]::before,
+        #checklist input[type="checkbox"]::after {
+          content:"";
+          position: absolute;
+          height: 2px;
+          top: auto;
+          background: var(--check);
+          border-radius: 2px;
+        }
+        #checklist input[type="checkbox"]::before {
+          width: 0px;
+          right: 60%;
+          transform-origin: right bottom;
+        }
+        #checklist input[type="checkbox"]::after {
+          width: 0px;
+          left: 40%;
+          transform-origin: left bottom;
+        }
+        #checklist input[type="checkbox"]:checked::before {
+          animation: check-01 .4s ease forwards;
+        }
+        #checklist input[type="checkbox"]:checked::after {
+          animation: check-02 .4s ease forwards;
+        }
+        #checklist input[type="checkbox"]:checked + label {
+          color: var(--disabled);
+          animation: move .3s ease .1s forwards;
+        }
+        #checklist input[type="checkbox"]:checked + label::before {
+          background: var(--disabled);
+          animation: slice .4s ease forwards;
+        }
+        #checklist input[type="checkbox"]:checked + label::after {
+          animation: firework .5s ease forwards .1s;
+        }
+        @keyframes move {
+          50% {
+            padding-left: 4px;
+            padding-right: 0px;
+          }
+          100% {
+            padding-right: 4px;
+          }
+        }
+        @keyframes slice {
+          60% {
+            width: 100%;
+            left: 4px;
+          }
+          100% {
+            width: 100%;
+            left: -2px;
+            padding-left: 0;
+          }
+        }
+        @keyframes check-01 {
+          0% {
+            width: 4px;
+            top: auto;
+            transform: rotate(0);
+          }
+          50% {
+            width: 0px;
+            top: auto;
+            transform: rotate(0);
+          }
+          51% {
+            width: 0px;
+            top: 8px;
+            transform: rotate(45deg);
+          }
+          100% {
+            width: 5px;
+            top: 8px;
+            transform: rotate(45deg);
+          }
+        }
+        @keyframes check-02 {
+          0% {
+            width: 4px;
+            top: auto;
+            transform: rotate(0);
+          }
+          50% {
+            width: 0px;
+            top: auto;
+            transform: rotate(0);
+          }
+          51% {
+            width: 0px;
+            top: 8px;
+            transform: rotate(-45deg);
+          }
+          100% {
+            width: 10px;
+            top: 8px;
+            transform: rotate(-45deg);
+          }
+        }
+        @keyframes firework {
+          0% {
+            opacity: 1;
+            box-shadow: 0 0 0 -2px #ffffff, 0 0 0 -2px #ffffff, 0 0 0 -2px #ffffff, 0 0 0 -2px #ffffff, 0 0 0 -2px #ffffff, 0 0 0 -2px #ffffff;
+          }
+          30% {
+            opacity: 1;
+          }
+          100% {
+            opacity: 0;
+            box-shadow: 0 -15px 0 0px #ffffff, 14px -8px 0 0px #ffffff, 14px 8px 0 0px #ffffff, 0 15px 0 0px #ffffff, -14px 8px 0 0px #ffffff, -14px -8px 0 0px #ffffff;
+          }
+        }
+      
+
+      </style>
+</head>
+<body>
+    <div class="navbar">
+      <div class="logo"><img src="images/bacademy-high-resolution-logo-white-transparent.png" ></div>
+      <div>dropbox</div>
+      <div>other seetings</div>
+    </div>
+    <div class="circle"></div>
+    <div class="square"></div>
+    <div class="container">
+
+        <div class="title">
+
+
+    
+    
+        
+          <h1>To-Do List</h1>
+          <img src="images/check-list.png" alt="">
+        </div>
+        <div class="input">
+            <div class="textInputWrapper">
+                <input type="text" placeholder="Enter a task" class="textInput">
+            </div>
+            <div class="two">
+                <div class="time-range">
+                    <input type="text" class="time-input" id="start-time" maxlength="5" placeholder="00:00"> -- 
+                    <input type="text" class="time-input" id="end-time" maxlength="5" placeholder="00:00">
+                </div>
+    
+                
+                <button id="addBtn" role="button"><span class="text1">Create</span></button>
+
+            </div>
+
+        </div>
+
+        
+
+        <table>
+            <thead>
+                <tr class="hi header">
+                    <th class="head">Task</td>
+                    <th class="head time">Time</td>
+                    <th class="head delete">Delete</td>
+                    <th class="head edit">Edit</td>
+
+                </tr>
+    
+
+
+            </thead>
+            <tbody id="tableb">
+                <!-- <tr>
+                    <th><div id="checklist"><input id="03" type="checkbox" name="r" value="3"><label for="03">Coffee</label></div></th>
+                    <th>454212</th>
+                    <th>delete</th>
+                    <th>update</th>
+                </tr> -->
+
+            </tbody>
+        </table>
+
+
+
+
+
+    </div>
+    <div class="context-menu" id="contextMenu">
+        <ul>
+            <li id='menuCompeleted' onclick="choiceAction('Choice 1')">Completed</li>
+            <li id='menuDelete' onclick="deleteTask()">Delete</li>
+            <li id='menuEdit' onclick="updateTask()">Edit</li>
+        </ul>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="todo.js"></script>
+
+    
+</body>
+</html>

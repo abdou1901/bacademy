@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href='style.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="circle"></div>
+    <div class="square"></div>
+    <div class="navbar2">
+      <div class="logo">
+        <img src="images/tomato.png">
+        <span>Pomodoro</span>
+      </div>
+      <div class="additional-features">
+        <button><i class="fa fa-pie-chart"></i> Reports</button>
+        <button id = "settings"><i class="fa fa-cogs"></i></i> Settings</button>
+        <button><i class="fa fa-credit-card-alt" ></i> Go premium</button>
+      </div>
+    </div>    
+    <div class="main-container">
+      <div class="buttons">
+        <button id="focus" class="active">Focus</button>
+        <button id="shortb">Short Break</button>
+        <button id="longb">Long Break</button>
+      </div>
+      <div class="time"><span id="minutes"></span>:<span id="seconds">00</span></div>
+      <div class="status">
+        <button id="start-pause">Start</button>
+        <button id="skipbtn"><img src="images/next.png"></button>
+      </div>
+      <div class="pomo-count">
+        <h4 id="count">#1</h4>
+        <p id="mode">focus time!!</p>
+      </div>
+    </div>
+
+
+    <dialog id="favDialog">
+      <div class="reset-close">
+        <button id="close-settings">X</button>
+        <button id="reset-settings"><i class="fa fa-undo" aria-hidden="true"></i></button>
+      </div>
+      
+      <div class="timeSet">
+        <h2>Edit time (by minutes)</h2>
+        <div class="timeSetContainer">
+          <div class="timeCells">
+            <span>Focus</span>
+            <input id="focus-input" type="number" min="1" max="500">
+          </div>
+          <div class="timeCells">
+            <span>Short break</span>
+            <input id="shortb-input" type="number" min="1" max="500">
+          </div>
+          <div class="timeCells">
+            <span>Long break</span>
+            <input id="longb-input" type="number" min="1" maxlength="500">
+          </div>
+        </div>
+
+        </div>
+      <div class="breaksmanage">
+        <h2>Manage Breaks</h2>
+        <div class="breaks-settings">
+          <div class="breaks-auto-start">
+            <p>Timer Auto Start (on switch)</p>
+            <label class="container">
+              <input type="checkbox" id="break-auto-checkbox">
+              <div class="checkmark"></div>
+            </label>
+            
+          </div>
+          <div class="pomodoros-number">
+            <p>Number of short breaks until long Breaks</p>
+            <input id="shortb-number-input" type="number" min="2" maxlength="10">
+            
+          </div>
+        </div>
+      </div>  
+      <div class="sounds-manage">
+        <h2>Sounds</h2>
+        <div class="alarm-sound">
+          <p>Select Alarm Sound</p>
+          <div class="drop-container">
+            <button id="alarm-soundbtn"></button>
+            <ul class="dropdown1 dropdown">
+                <li><a href="#">None</a></li>
+                <li><a href="#">Default</a></li>
+                <li><a href="#">Classic alarm</a></li>
+                <li><a href="#">Digital clock</a></li>
+                <li><a href="#">Rooster crowing</a></li>
+
+            </ul> 
+          </div>  
+        </div>
+        <div class="background-sound">
+          <p>Select Background Sound</p>
+          <div class="drop-container">
+            <button id="background-soundbtn"></button>
+            <ul class="dropdown2 dropdown">
+                <li><a href="#">None</a></li>
+                <li><a href="#">Water stream</a></li>
+                <li><a href="#">Storm</a></li>
+                <li><a href="#">Birds chirping</a></li>
+                <li><a href="#">White noise</a></li>
+            </ul>
+          </div>  
+        </div>
+      </div>
+        
+
+    
+    </dialog>
+    <div class="tasks">
+      <button id="get-tasks">Import Tasks :</button>
+      
+    </div>
+    <div id="myModal" class="modal">
+      <!-- Modal content -->
+      <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>Select a task to complete using pomodoro technique :</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Task</th>
+                <th>Time (by minutes)</th>
+                <th>Complete</th>
+              </tr>
+
+            </thead>
+            <tbody id="table">
+              
+
+            </tbody>
+          </table>
+      </div>
+    </div>
+
+
+
+
+
+    <script src="pomo.js"></script>
+</body>
+</html>
