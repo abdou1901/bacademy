@@ -32,10 +32,10 @@ app.use(session({
 
 // Create connection to MySQL
 const db = mysql.createConnection({
-    host: process.env.DB_HOST || 'localhost',
-    user: process.env.DB_USER || 'root',
-    password: process.env.DB_PASSWORD || '',
-    database: process.env.DB_NAME || 'my_database'
+    host: process.env.DB_HOST || 'sql110.infinityfree.com',
+    user: process.env.DB_USER || 'if0_37124283',
+    password: process.env.DB_PASSWORD || 'OUgiXTucCd',
+    database: process.env.DB_NAME || 'if0_37124283_my_database'
 });
 
 // Connect to MySQL
